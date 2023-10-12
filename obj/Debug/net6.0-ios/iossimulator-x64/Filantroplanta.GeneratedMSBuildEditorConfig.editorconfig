@@ -1,0 +1,125 @@
+is_global = true
+build_property.TargetFramework = net6.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Filantroplanta
+build_property.ProjectDir = C:\Users\sarag\source\repos\Filantroplanta\
+
+[C:/Users/sarag/source/repos/Filantroplanta/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/Filantro.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.Filantro.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Filantro.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Filantro.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/Login.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.Login.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Login.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Login.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/PaginaInicial.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.PaginaInicial.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\PaginaInicial.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\PaginaInicial.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/Produtor/ProdCadastroProduto.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.Produtor.ProdCadastroProduto.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Produtor\ProdCadastroProduto.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Produtor\ProdCadastroProduto.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/Produtor/ProdControleEstoque.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.Produtor.ProdControleEstoque.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Produtor\ProdControleEstoque.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Produtor\ProdControleEstoque.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/Produtor/ProdEstoque.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.Produtor.ProdEstoque.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Produtor\ProdEstoque.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Produtor\ProdEstoque.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/Produtor/ProdHome.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.Produtor.ProdHome.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Produtor\ProdHome.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Produtor\ProdHome.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/Produtor/ProdMinhaConta.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.Produtor.ProdMinhaConta.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Produtor\ProdMinhaConta.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Produtor\ProdMinhaConta.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/Produtor/ProdPaginaInicial.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.Produtor.ProdPaginaInicial.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Produtor\ProdPaginaInicial.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Produtor\ProdPaginaInicial.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/Produtor/ProdPedidos.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.Produtor.ProdPedidos.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Produtor\ProdPedidos.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Produtor\ProdPedidos.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/Produtor/ProdProdutos.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.Produtor.ProdProdutos.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Produtor\ProdProdutos.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Produtor\ProdProdutos.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/Usuario/AlterarSenha.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.Usuario.AlterarSenha.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Usuario\AlterarSenha.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Usuario\AlterarSenha.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/Usuario/CadastroPessoa.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.Usuario.CadastroPessoa.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Usuario\CadastroPessoa.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Usuario\CadastroPessoa.xaml
+
+[C:/Users/sarag/source/repos/Filantroplanta/Views/Usuario/MinhaConta.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Filantroplanta.Views.Usuario.MinhaConta.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Usuario\MinhaConta.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Usuario\MinhaConta.xaml

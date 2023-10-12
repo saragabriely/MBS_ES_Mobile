@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Produtor.ProdProdutos"
+             Title="Produtos" >
+
+    <VerticalStackLayout 
+        Spacing="5"
+        Padding="30,0" 
+        >
+
+        <Label 
+            x:Name="lblProdutos"
+            Text="Controle de Produtos"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="18"
+            FontAttributes="Bold"
+            Margin="0,30,0,20"
+            />
+
+        <Border Stroke="#FFFFFF"
+                    StrokeThickness="2"
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 6"
+                     >
+            <Button Text="+ Adicionar Produto" WidthRequest="300" BackgroundColor="#AA7C04" TextColor="White" FontAttributes="Bold" Clicked="ButtonAdicionarProduto_Clicked" VerticalOptions="EndAndExpand"  />
+        </Border>
+
+        <Label x:Name="lblListaVazia" Text="Nenhum produto cadastrado até o momento" FontSize="14" Margin="0,20,0,0" TextColor="DarkGray" HorizontalTextAlignment="Center" IsVisible="false" />
+
+        <ScrollView>
+            <ListView x:Name="listaProdutos" ItemSelected="listaProdutos_ItemSelected" Margin="0,20,0,0"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Descricao}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+    </VerticalStackLayout>
+</ContentPage>

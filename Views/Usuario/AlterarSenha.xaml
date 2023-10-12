@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Usuario.AlterarSenha"
+             Title="Alterar Senha">
+
+    <VerticalStackLayout 
+        Spacing="5"
+        Padding="30,0" 
+        >
+
+        <Label 
+            x:Name="lblAlterarSenha"
+            Text="Alteração de Senha"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="18"
+            FontAttributes="Bold"
+            Margin="0,25"
+            />
+
+        <StackLayout x:Name="stSenha">
+            <Label Text="Senha" FontAttributes="Bold"  />
+            <Entry x:Name="entSenha" Placeholder="*****" IsPassword="True"  />
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
+
+            <Label Text="Confirmar Senha" FontAttributes="Bold"  />
+            <Entry x:Name="entConfirmaSenha" Placeholder="*****" IsPassword="True"  />
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10"  />
+
+        </StackLayout>
+
+        <HorizontalStackLayout Margin="0,20,0,60">
+
+            <Border Stroke="#645E5E"
+                    StrokeThickness="2"
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 6"
+                    Margin="0,0,30,0" >
+
+                <Button x:Name="btnCancelar" Text="Cancelar" WidthRequest="150" BackgroundColor="White" TextColor="#645E5E" FontAttributes="Bold" Clicked="btnCancelar_Clicked"  />
+            </Border>
+
+            <Border Stroke="#1C6B00"
+                    StrokeThickness="2"
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 6"
+                    Margin="0,0,30,0"
+                    x:Name="btnSalvar_"
+                        >
+                <Button x:Name="btnSalvar" Text="Salvar" WidthRequest="150" BackgroundColor="White" TextColor="#1C6B00" FontAttributes="Bold" Clicked="btnSalvar_Clicked" />
+            </Border>
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

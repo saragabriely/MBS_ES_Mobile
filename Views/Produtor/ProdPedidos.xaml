@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Produtor.ProdPedidos"
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             Title="Pedidos__">
+
+    <VerticalStackLayout 
+        Spacing="5"
+        Padding="30,0" 
+        >
+
+        <Label 
+            x:Name="lblPedidos"
+            Text="Controle de Pedidos"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="18"
+            FontAttributes="Bold"
+            Margin="0,30,0,20"
+            />
+
+    </VerticalStackLayout>
+
+</ContentPage>
