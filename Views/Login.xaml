@@ -7,6 +7,7 @@
              BackgroundImageSource="paginainicial.jpg"
              NavigationPage.HasNavigationBar="false"
              NavigationPage.HasBackButton="false"
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
              >
 
     <VerticalStackLayout
@@ -100,7 +101,7 @@
                 HorizontalTextAlignment="Center"
                 FontAttributes="Bold" >
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Tapped="btnLogin_Clicked" NumberOfTapsRequired="1" />
+                <TapGestureRecognizer Tapped="RealizarCadastro_Clicked" NumberOfTapsRequired="1" />
             </Label.GestureRecognizers>
         </Label>
 

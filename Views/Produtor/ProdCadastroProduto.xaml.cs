@@ -13,13 +13,17 @@ public partial class ProdCadastroProduto : ContentPage
     public ProdCadastroProduto()
 	{
 		InitializeComponent();
-	}
+
+        btnCadastrarSalvarProduto.Text = "Cadastrar";
+    }
 
     public ProdCadastroProduto(Produto produto)
     {
         InitializeComponent();
-        
-        if(produto != null)
+
+        btnCadastrarSalvarProduto.Text = "Salvar";
+
+        if (produto != null)
         {
             this.produto = produto;
 
@@ -28,20 +32,20 @@ public partial class ProdCadastroProduto : ContentPage
             entValorPorKG.Text  = this.produto.ValorPorKG.ToString();
 
             btnExcluir_.IsVisible   = true;
-            btnSalvar_.IsVisible    = true;
-            btnCadastrar_.IsVisible = false;
+            //btnSalvar_.IsVisible    = true;
+            //btnCadastrar_.IsVisible = false;
         }
     }
 
-    private void ButtonSalvarProduto_Clicked(object sender, EventArgs e)
+    private void ButtonCadastrarSalvarProduto_Clicked(object sender, EventArgs e)
     {
         RealizarCadastroProduto();
     }
 
-    private void ButtonCadastrarProduto_Clicked(object sender, EventArgs e)
-    {
-        RealizarCadastroProduto();
-    }
+    //private void ButtonCadastrarProduto_Clicked(object sender, EventArgs e)
+    //{
+    //    RealizarCadastroProduto();
+    //}
 
     private async void ButtonExcluirProduto_Clicked(object sender, EventArgs e)
     {

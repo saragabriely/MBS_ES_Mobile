@@ -4,6 +4,7 @@
              x:Class="Filantroplanta.Views.Produtor.ProdHome"             
              xmlns:local="clr-namespace:Filantroplanta.Views.Produtor"
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             NavigationPage.HasBackButton="False"
              Title="Página Inicial">
 
     <VerticalStackLayout 
@@ -12,7 +13,6 @@
         
         <Label 
             x:Name="lblMsgInicial"
-            Text="Olá, seja bem-vindo!"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             FontSize="18"
@@ -50,7 +50,7 @@
                 <Label Grid.Row="3" Grid.Column="0" Text="Cancelados" Margin="0,0,0,10" />
                 <Label Grid.Row="3" Grid.Column="1" Text="" Margin="0,0,0,10" x:Name="lblCancelados" HorizontalTextAlignment="End" />
             </Grid>
-            
+
         </StackLayout>
 
         <HorizontalStackLayout>

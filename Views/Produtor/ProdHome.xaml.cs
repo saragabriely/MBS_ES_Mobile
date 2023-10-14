@@ -1,16 +1,30 @@
 using Filantroplanta.Models;
 using Filantroplanta.Mock;
 using Filantroplanta.Controle.Produtor;
+using Filantroplanta.Controle.Pessoa;
 
 namespace Filantroplanta.Views.Produtor;
 
 public partial class ProdHome : ContentPage
 {
+    public ControlePessoa controle = new ControlePessoa();
+
     public ProdHome()
 	{
 		InitializeComponent();
 
+        PopularLabelBoasVindas();
+
         BuscarPedidos();
+    }
+
+    private void PopularLabelBoasVindas()
+    {
+        var produtor  = controle.BuscarUsuarioLogado();
+
+        var nomePessoa = produtor != null && produtor.Pessoa_ID > 0 ? produtor.Nome : "";
+
+        lblMsgInicial.Text = $"Olá, seja bem-vindo(a)! {nomePessoa}";
     }
 
     private void Filantroplanta_Clicked(object sender, EventArgs e)

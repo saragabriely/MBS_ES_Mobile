@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Filantroplanta.Views.Produtor.ProdProdutos"
+             xmlns:local="clr-namespace:Filantroplanta.Views.Produtor"
+             NavigationPage.HasBackButton="False"
              Title="Produtos" >
 
     <VerticalStackLayout 
@@ -20,9 +22,9 @@
             />
 
         <Border Stroke="#FFFFFF"
-                    StrokeThickness="2"
-                    HorizontalOptions="Center"
-                    StrokeShape="RoundRectangle 6"
+                StrokeThickness="2"
+                HorizontalOptions="Center"
+                StrokeShape="RoundRectangle 6"
                      >
             <Button Text="+ Adicionar Produto" WidthRequest="300" BackgroundColor="#AA7C04" TextColor="White" FontAttributes="Bold" Clicked="ButtonAdicionarProduto_Clicked" VerticalOptions="EndAndExpand"  />
         </Border>

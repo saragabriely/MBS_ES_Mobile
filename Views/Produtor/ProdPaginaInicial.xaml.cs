@@ -7,7 +7,5 @@ public partial class ProdPaginaInicial : TabbedPage
 	public ProdPaginaInicial()
 	{
 		InitializeComponent();
-
-        Navigation.RemovePage(new Login());
     }
 }

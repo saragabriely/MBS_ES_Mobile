@@ -15,33 +15,32 @@ public partial class CadastroPessoa : ContentPage
     public CadastroPessoa()
 	{
 		InitializeComponent();
+        btnFinalizarSalvar.Text = "Finalizar";
     }
 
     public CadastroPessoa(Pessoa pessoaCadastrada)
     {
         InitializeComponent();
 
-        pessoaCadastrada = controlePessoa.BuscarPessoa(1);
+        btnFinalizarSalvar.Text = "Salvar";
 
         if (pessoaCadastrada != null)
         {
             this.pessoa = pessoaCadastrada;
             PopularCamposCadastro(pessoaCadastrada);
         }
+        else
+        {
+            //VoltarTelaLogin();
+        }
     }
 
     private void ButtonCancelar_Clicked(object sender, EventArgs e)
     {
-        if(this.pessoa != null && this.pessoa.Pessoa_ID != 0)
-        {
-            if (this.pessoa.mTipoPessoa.TipoPessoa_ID == TipoPessoa.Produtor)
-                VoltarTelaProdMinhaConta();
-        }
-        else 
-            VoltarTelaLogin();
+        Voltar();
     }
 
-    private async void ButtonFinalizar_Clicked(object sender, EventArgs e)
+    private async void ButtonSalvar_Clicked(object sender, EventArgs e)
     {
         await FinallizarOuSalvarCadastro();
     }
@@ -59,15 +58,15 @@ public partial class CadastroPessoa : ContentPage
 
             await DisplayAlert("Cadastro realizado", "Cadastro realizado com sucesso!", "OK");
 
-            VoltarTelaLogin();
+            Voltar();
         }
         else if(pessoa != null && pessoa.Pessoa_ID > 0)
         {
-            controlePessoa.SalvarPessoa(this.pessoa);
+            controlePessoa.AdicionarSalvarPessoaCache(this.pessoa, $"Pessoa_{this.pessoa.Pessoa_ID}");
 
             await DisplayAlert("Cadastro atualizado", "Cadastro atualizado com sucesso!", "OK");
 
-            VoltarTelaProdMinhaConta();
+            Voltar();
         }
     }
 
@@ -189,11 +188,7 @@ public partial class CadastroPessoa : ContentPage
         await DisplayAlert("Campo Vazio", $"Popule o campo '{campo}'", "OK");
     }
 
-    private void VoltarTelaLogin()
-    {
-        Navigation.PushAsync(new Login());
-    }
-    private void VoltarTelaProdMinhaConta()
+    private void Voltar()
     {
         Navigation.PopAsync();
     }
@@ -224,7 +219,5 @@ public partial class CadastroPessoa : ContentPage
         stPerfilCadastro.IsVisible  = true;
         lblPrimeiroCadastro.IsVisible = false;
         lblMeuCadastro.IsVisible    = true;
-        btnSalvar_.IsVisible        = true;
-        btnFinalizar_.IsVisible     = false;
     }
 }

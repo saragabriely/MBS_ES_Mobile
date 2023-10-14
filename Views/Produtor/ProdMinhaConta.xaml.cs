@@ -1,24 +1,27 @@
 using Filantroplanta.Controle.Pessoa;
 using Filantroplanta.Mock;
+using Filantroplanta.Models;
 
 namespace Filantroplanta.Views.Produtor;
 
 public partial class ProdMinhaConta : ContentPage
 {
     public ControlePessoa controlePessoa = new ControlePessoa();
+    public Pessoa usuarioLogado = new Pessoa();
 
 	public ProdMinhaConta()
 	{
 		InitializeComponent();
-	}
+
+        this.usuarioLogado = controlePessoa.BuscarUsuarioLogado();
+
+        if (this.usuarioLogado != null)
+            lblMinhaConta.Text = $"Olá, {this.usuarioLogado.Nome}";
+    }
 
     private void btnMeusDados_Clicked(object sender, EventArgs e)
     {
-        var mock = new MockGeral();
-
-        var pessoa = controlePessoa.BuscarPessoa(1); //mock.MockProdutor();
-
-        Navigation.PushAsync(new Usuario.CadastroPessoa(pessoa));
+        Navigation.PushAsync(new Usuario.CadastroPessoa(this.usuarioLogado));
     }
 
     private void btnAlterarSenha_Clicked(object sender, EventArgs e)
@@ -26,8 +29,12 @@ public partial class ProdMinhaConta : ContentPage
         Navigation.PushAsync(new Usuario.AlterarSenha());
     }
 
-    private void btnSair_Clicked(object sender, EventArgs e)
+    private async void btnSair_Clicked(object sender, EventArgs e)
     {
+        await DisplayAlert("Saindo ...", "Você será deslogado do app", "OK");
 
+        controlePessoa.Logout();
+
+        App.Current.MainPage = new Login();
     }
 }

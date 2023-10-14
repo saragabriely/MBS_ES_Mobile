@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Filantroplanta.Views.Produtor.ProdCadastroProduto"
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:local="clr-namespace:Filantroplanta.Views.Produtor"
              Title="Produto">
 
     <VerticalStackLayout 
@@ -43,7 +44,7 @@
                 <Button x:Name="btnCancelar" Text="Cancelar" WidthRequest="150" BackgroundColor="#645E5E" TextColor="White" FontAttributes="Bold" Clicked="ButtonCancelar_Clicked"  />
             </Border>
 
-            <Border Stroke="#1C6B00"
+            <Border Stroke="white"
                     StrokeThickness="2"
                     HorizontalOptions="Center"
                     StrokeShape="RoundRectangle 6"
@@ -51,20 +52,9 @@
                     x:Name="btnCadastrar_"
                     >
 
-                <Button x:Name="btnCadastrarProduto" Text="Cadastrar" WidthRequest="150" BackgroundColor="White" TextColor="#1C6B00" FontAttributes="Bold" Clicked="ButtonCadastrarProduto_Clicked" />
+                <Button x:Name="btnCadastrarSalvarProduto" WidthRequest="150" BackgroundColor="#1C6B00" TextColor="White" FontAttributes="Bold" Clicked="ButtonCadastrarSalvarProduto_Clicked" />
             </Border>
-
-            <Border Stroke="white"
-                    StrokeThickness="2"
-                    HorizontalOptions="Center"
-                    StrokeShape="RoundRectangle 6"
-                    Margin="0,0,10,0"
-                    IsVisible="false" 
-                    x:Name="btnSalvar_">
-
-                <Button x:Name="btnSalvarProduto" Text="Salvar" WidthRequest="150" BackgroundColor="#1C6B00" TextColor="White" FontAttributes="Bold" Clicked="ButtonSalvarProduto_Clicked" />
-            </Border>
-
+            
         </HorizontalStackLayout>
 
         <Border Stroke="White"

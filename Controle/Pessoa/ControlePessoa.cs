@@ -1,4 +1,5 @@
-﻿using LazyCache;
+﻿using Filantroplanta.Mock;
+using LazyCache;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,25 +11,43 @@ namespace Filantroplanta.Controle.Pessoa
     public class ControlePessoa
     {
         public readonly IAppCache cache = new CachingService();
+        public MockGeral mock = new MockGeral();
 
-        public Models.Pessoa BuscarPessoa(long pessoaID)
+        public void Logout()
         {
-            return ObterPessoa(pessoaID);
+            AdicionarSalvarPessoaCache(null, "UsuarioLogado");
         }
 
-        public Models.Pessoa ObterPessoa(long pessoaID)
+        public void RegistrarUsuarioLogado(Models.Pessoa pessoa)
         {
-            var teste = cache.Get<Models.Pessoa>($"Pessoa_{pessoaID}");
-
-            return teste;
+            AdicionarSalvarPessoaCache(pessoa, "UsuarioLogado");
         }
 
-        public void SalvarPessoa(Models.Pessoa pessoa)
+        public Models.Pessoa ObterPessoa(string chave)
         {
-            cache.GetOrAdd("Pessoa_" + pessoa.Pessoa_ID, () =>
+            return cache.Get<Models.Pessoa>(chave);
+        }
+
+        public void AdicionarSalvarPessoaCache(Models.Pessoa pessoa, string chave)
+        {
+            cache.GetOrAdd(chave, () =>
             {
                 return pessoa;
             });
+        }
+
+        public Models.Pessoa BuscarUsuarioLogado()
+        {
+            return ObterPessoa("UsuarioLogado");
+        }
+
+        public List<Models.Pessoa> BuscarListaPessoaCache()
+        {
+            return new List<Models.Pessoa> 
+            {
+                mock.MockProdutor(),
+                mock.MockRestaurante()
+            };
         }
     }
 }
