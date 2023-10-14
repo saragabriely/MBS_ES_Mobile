@@ -4,6 +4,7 @@
              x:Class="Filantroplanta.Views.Produtor.ProdCadastroProduto"
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
              xmlns:local="clr-namespace:Filantroplanta.Views.Produtor"
+             xmlns:custom_components="clr-namespace:Filantroplanta.Views.Produtor"
              Title="Produto">
 
     <VerticalStackLayout 
@@ -44,17 +45,8 @@
                 <Button x:Name="btnCancelar" Text="Cancelar" WidthRequest="150" BackgroundColor="#645E5E" TextColor="White" FontAttributes="Bold" Clicked="ButtonCancelar_Clicked"  />
             </Border>
 
-            <Border Stroke="white"
-                    StrokeThickness="2"
-                    HorizontalOptions="Center"
-                    StrokeShape="RoundRectangle 6"
-                    Margin="0,0,10,0" 
-                    x:Name="btnCadastrar_"
-                    >
-
-                <Button x:Name="btnCadastrarSalvarProduto" WidthRequest="150" BackgroundColor="#1C6B00" TextColor="White" FontAttributes="Bold" Clicked="ButtonCadastrarSalvarProduto_Clicked" />
-            </Border>
-            
+            <custom_components:ProdShared x:Name="btnCadastrarSalvarProduto" Titulo="Salvar"  />
+                        
         </HorizontalStackLayout>
 
         <Border Stroke="White"

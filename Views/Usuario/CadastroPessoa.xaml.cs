@@ -42,10 +42,10 @@ public partial class CadastroPessoa : ContentPage
 
     private async void ButtonSalvar_Clicked(object sender, EventArgs e)
     {
-        await FinallizarOuSalvarCadastro();
+        await FinalizarOuSalvarCadastro();
     }
 
-    public async Task FinallizarOuSalvarCadastro()
+    public async Task FinalizarOuSalvarCadastro()
     {
         var taskPessoa = ValidarCamposPopulados();
         var pessoa     = taskPessoa.Result as Pessoa;

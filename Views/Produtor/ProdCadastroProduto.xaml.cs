@@ -1,6 +1,7 @@
 using Filantroplanta.Controle.Produtor;
 using Filantroplanta.Mock;
 using Filantroplanta.Models;
+using System.Windows.Input;
 
 namespace Filantroplanta.Views.Produtor;
 
@@ -13,15 +14,21 @@ public partial class ProdCadastroProduto : ContentPage
     public ProdCadastroProduto()
 	{
 		InitializeComponent();
-
-        btnCadastrarSalvarProduto.Text = "Cadastrar";
     }
+
+    //public ICommand DoSomethingCommand => new Command(doSomethingMethod);
+    //
+    //private async void doSomethingMethod(object obj)
+    //{
+    //    //System.Diagnostics.Debug.Write("invoke command  dosomething");
+    //    await DisplayAlert("TESTE", "Teste ok", "OK");
+    //}
 
     public ProdCadastroProduto(Produto produto)
     {
         InitializeComponent();
 
-        btnCadastrarSalvarProduto.Text = "Salvar";
+        //btnCadastrarSalvarProduto.Text = "Salvar";
 
         if (produto != null)
         {
@@ -135,8 +142,6 @@ public partial class ProdCadastroProduto : ContentPage
             }
 
             Voltar(controleProduto.BuscarListaProdutoCache());
-
-            //NavegarListaProdutos();
         }
     }
 

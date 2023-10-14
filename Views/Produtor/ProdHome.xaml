@@ -4,9 +4,11 @@
              x:Class="Filantroplanta.Views.Produtor.ProdHome"             
              xmlns:local="clr-namespace:Filantroplanta.Views.Produtor"
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:custom_components="clr-namespace:Filantroplanta.Views.Produtor"
              NavigationPage.HasBackButton="False"
              Title="Página Inicial">
 
+    
     <VerticalStackLayout 
         Spacing="5"
         Padding="30,0">
@@ -19,7 +21,7 @@
             FontAttributes="Bold"
             Margin="0,30"
             />
-
+        
         <StackLayout HeightRequest="500">
             <Label Text="Resumo de pedidos" FontAttributes="Bold" Margin="0,0,0,10" HorizontalTextAlignment="Center" BackgroundColor="#AA7C04" TextColor="White" Padding="8" />
             <BoxView HeightRequest="1" Color="#C38E06" Margin="0,-5,0,10" />

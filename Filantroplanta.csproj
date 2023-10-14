@@ -124,7 +124,7 @@
 	  <MauiXaml Update="Views\Produtor\ProdProdutos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Produtor\Shared.xaml">
+	  <MauiXaml Update="Views\Produtor\ProdShared.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Restaurante\RestPaginaInicial.xaml">
