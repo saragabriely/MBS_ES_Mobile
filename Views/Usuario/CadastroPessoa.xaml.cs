@@ -1,5 +1,7 @@
+using Filantroplanta.Controle;
 using Filantroplanta.Controle.Pessoa;
 using Filantroplanta.Models;
+using Filantroplanta.Views.Componentizacao.Botao;
 using Filantroplanta.Views.Produtor;
 using LazyCache;
 using System.Threading.Tasks;
@@ -9,20 +11,48 @@ namespace Filantroplanta.Views.Usuario;
 public partial class CadastroPessoa : ContentPage
 {
     public Pessoa pessoa { get; set; }
-
     public ControlePessoa controlePessoa = new ControlePessoa();
+    public BotoesCancelarSalvar btnCancelarSalvar = new BotoesCancelarSalvar();
+    public ControleComponentizacao controleComponente = new ControleComponentizacao();
 
     public CadastroPessoa()
 	{
 		InitializeComponent();
-        btnFinalizarSalvar.Text = "Finalizar";
+
+        AssociarComponentesCompartilhados();
+    }
+
+    private void AssociarComponentesCompartilhados()
+    {
+        AssociarBotaoCancelar();
+        AssociarBotaoSalvar();
+    }
+
+    private void AssociarBotaoCancelar()
+    {
+        BotaoCancelarVoltar btnCancelar = new BotaoCancelarVoltar();
+        hsBotoesSalvarCancelar.Children.Add(btnCancelar);
+
+        Button cancelar = btnCancelar.FindByName<Button>("btnCancelarVoltar");
+        cancelar.Clicked += this.ButtonCancelar_Clicked;
+        cancelar.Text = "Voltar";
+    }
+
+    private void AssociarBotaoSalvar()
+    {
+        BotaoSalvar btnSalvar = new BotaoSalvar();
+        hsBotoesSalvarCancelar.Children.Add(btnSalvar);
+
+        Button salvar = btnSalvar.FindByName<Button>("btnCadastrarSalvar");
+        salvar.Clicked += this.ButtonSalvarPessoa_Clicked;
+        salvar.Text = "Salvar";
     }
 
     public CadastroPessoa(Pessoa pessoaCadastrada)
     {
         InitializeComponent();
 
-        btnFinalizarSalvar.Text = "Salvar";
+        AssociarComponentesCompartilhados();
 
         if (pessoaCadastrada != null)
         {
@@ -40,7 +70,7 @@ public partial class CadastroPessoa : ContentPage
         Voltar();
     }
 
-    private async void ButtonSalvar_Clicked(object sender, EventArgs e)
+    private async void ButtonSalvarPessoa_Clicked(object sender, EventArgs e)
     {
         await FinalizarOuSalvarCadastro();
     }

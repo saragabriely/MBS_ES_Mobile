@@ -102,27 +102,8 @@
 
             </StackLayout>
 
-            <HorizontalStackLayout Margin="0,20,0,60">
-
-                <Border Stroke="White"
-                    StrokeThickness="2"
-                    HorizontalOptions="Center"
-                    StrokeShape="RoundRectangle 6"
-                    Margin="0,0,30,0" >
-
-                    <Button x:Name="btnCancelar" Text="Cancelar" WidthRequest="150" BackgroundColor="#645E5E" TextColor="White" FontAttributes="Bold" Clicked="ButtonCancelar_Clicked"  />
-                </Border>
-
-                <Border Stroke="White"
-                    StrokeThickness="2"
-                    HorizontalOptions="Center"
-                    StrokeShape="RoundRectangle 6"
-                    Margin="0,0,30,0" >
-
-                    <Button x:Name="btnFinalizarSalvar" WidthRequest="150" BackgroundColor="#1C6B00" TextColor="White" FontAttributes="Bold" Clicked="ButtonSalvar_Clicked" />
-                </Border>
-
-            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="hsBotoesSalvarCancelar" Margin="0,20,0,60" />
+            
         </VerticalStackLayout>
     </ScrollView>
 

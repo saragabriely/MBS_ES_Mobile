@@ -17,7 +17,7 @@
             x:Name="lblMsgInicial"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
-            FontSize="18"
+            FontSize="16"
             FontAttributes="Bold"
             Margin="0,30"
             />

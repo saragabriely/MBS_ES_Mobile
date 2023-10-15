@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Filantroplanta.Views.Componentizacao.Botao.BotoesCancelarSalvar"
+             x:Name="ControleBotoesCancelarSalvar"
+             BindingContext="{x:Reference ControleBotoesCancelarSalvar}"
+             >
+
+    <HorizontalStackLayout>
+        <Border Stroke="White"
+                    StrokeThickness="2"
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 6"
+                    Margin="0,0,30,0" >
+
+            <Button x:Name="btnCancelarVoltar" Text="Cancelar" WidthRequest="150" BackgroundColor="#645E5E" TextColor="White" FontAttributes="Bold" />
+        </Border>
+
+        <Border Stroke="white"
+                    StrokeThickness="2"
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 6"
+                    Margin="0,0,10,0" 
+                    >
+            <Button x:Name="btnCadastrarSalvar" WidthRequest="150" BackgroundColor="#1C6B00" TextColor="White" FontAttributes="Bold" />
+        </Border>
+    </HorizontalStackLayout>
+</ContentView>
