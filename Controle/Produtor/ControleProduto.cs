@@ -22,22 +22,14 @@ namespace Filantroplanta.Controle.Produtor
             return BuscarListaProdutoCache();
         }
 
-        //public Produto BuscarProduto(long produtoID)
-        //{
-        //    return ObterProduto(produtoID);
-        //}
-
         public void SalvarAdicionarProduto(Produto produto)
         {
-            long idProduto = 0;
-            var lista = BuscarListaProdutoCache();
-
-            if(lista != null && lista.Count > 0)
+            if(produto.Produto_ID == 0)
             {
-                idProduto = lista.Max(i => i.Produto_ID);
+                var lista = BuscarListaProdutoCache();
 
-                if (idProduto > 0)
-                    produto.Produto_ID = idProduto + 1;
+                if (lista != null && lista.Count > 0)
+                    produto.Produto_ID = lista.Max(i => i.Produto_ID) + 1;
             }
 
             AdicionarProdutoCache(produto);
