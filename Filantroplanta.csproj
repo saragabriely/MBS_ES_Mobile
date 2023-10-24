@@ -76,6 +76,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\Componentizacao\BotaoExcluirRecusar.xaml.cs">
+	    <DependentUpon>BotaoExcluirRecusar.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Componentizacao\BotaoCancelar.xaml.cs">
+	    <DependentUpon>BotaoCancelar.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Componentizacao\LabelInputSenha.xaml.cs">
+	    <DependentUpon>LabelInputSenha.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Produtor\ProdMinhaConta.xaml.cs">
 	    <DependentUpon>ProdMinhaConta.xaml</DependentUpon>
 	  </Compile>
@@ -91,13 +100,28 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\Componentizacao\Botao\BotaoCancelarVoltar.xaml">
+	  <MauiXaml Update="Views\Componentizacao\BotaoExcluirRecusar.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Componentizacao\Botao\BotaoSalvar.xaml">
+	  <MauiXaml Update="Views\Componentizacao\BotaoSalvar.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Componentizacao\Botao\BotoesCancelarSalvar.xaml">
+	  <MauiXaml Update="Views\Componentizacao\BotaoCancelar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Componentizacao\LabelInputNumero.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Componentizacao\LabelInputSenha.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Componentizacao\LabelListaVazia.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Componentizacao\LabelTitulo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Componentizacao\LabelInput.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Filantro.xaml">

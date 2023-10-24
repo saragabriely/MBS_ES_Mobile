@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Filantroplanta.Views.Produtor.ProdMinhaConta"
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:local="clr-namespace:Filantroplanta.Views.Componentizacao"
              NavigationPage.HasBackButton="False"
              Title="Minha Conta">
 
@@ -11,15 +12,7 @@
         Padding="30,0" 
         >
 
-        <Label 
-            x:Name="lblMinhaConta"
-            Text="Olá!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            FontSize="18"
-            FontAttributes="Bold"
-            Margin="0,25"
-            />
+        <local:LabelTitulo Titulo="Manutenção dos seus dados" x:Name="lblMinhaConta" />
 
         <Border Stroke="#1C6B00"
                     StrokeThickness="2"

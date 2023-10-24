@@ -16,7 +16,7 @@ public partial class ProdMinhaConta : ContentPage
         this.usuarioLogado = controlePessoa.BuscarUsuarioLogado();
 
         if (this.usuarioLogado != null)
-            lblMinhaConta.Text = $"Olá, {this.usuarioLogado.Nome}";
+            lblMinhaConta.Titulo = $"Olá, {this.usuarioLogado.Nome}";
     }
 
     private void btnMeusDados_Clicked(object sender, EventArgs e)
@@ -31,10 +31,12 @@ public partial class ProdMinhaConta : ContentPage
 
     private async void btnSair_Clicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Saindo ...", "Você será deslogado do app", "OK");
+        bool resposta = await DisplayAlert("Saindo", "Realmente deseja sair?", "Sim", "Não");
 
-        controlePessoa.Logout();
-
-        App.Current.MainPage = new Login();
+        if (resposta)
+        {
+            controlePessoa.Logout();
+            App.Current.MainPage = new Login();
+        }
     }
 }

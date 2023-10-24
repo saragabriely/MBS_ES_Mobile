@@ -3,48 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Filantroplanta.Views.Produtor.ProdCadastroProduto"
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
-             xmlns:local="clr-namespace:Filantroplanta.Views.Produtor"
-             xmlns:custom_components="clr-namespace:Filantroplanta.Views.Produtor"
+             xmlns:local="clr-namespace:Filantroplanta.Views.Componentizacao"
              Title="Produto">
 
     <VerticalStackLayout 
         x:Name="verticalLayout"
         Spacing="5"
         Padding="30,0">
+        
+        <local:LabelTitulo Titulo="Cadastro de Produto" />
 
-        <Label 
-            Text="Cadastro de Produto"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            FontSize="18"
-            Margin="0,30"
-            FontAttributes="Bold"
-            />
-
-        <Label Text="Nome do produto" />
-        <Entry x:Name="entNomeProduto" Placeholder="Digite o nome" WidthRequest="320"  Margin="-10,0,0,0" Keyboard="Text" />
-        <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
-
-        <Label Text="Quantidade em KG" />
-        <Entry x:Name="entQtde" Placeholder="1000" Keyboard="Numeric" />
-        <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
-
-        <Label Text="Valor por KG" />
-        <Entry x:Name="entValorPorKG" Placeholder="R$ 1.000,00" Keyboard="Numeric" />
-        <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
+        <local:LabelInput       TextoLabel="Nome do Produto"  PlaceholderEntry="Digite o nome do produto" x:Name="entNomeProduto" />
+        <local:LabelInputNumero TextoLabel="Quantidade em KG" PlaceholderEntry="1000"                     x:Name="entQtde"        />
+        <local:LabelInputNumero TextoLabel="Valor por KG"     PlaceholderEntry="1000"                     x:Name="entValorPorKG"  />
 
         <Label Text="Foto" />
 
-        <HorizontalStackLayout Margin="0,60" x:Name="hsBotoesSalvarCancelar" />
+        <HorizontalStackLayout x:Name="hsBotoesSalvarCancelar" />
 
-        <Border Stroke="White"
-                    StrokeThickness="2"
-                    HorizontalOptions="Center"
-                    StrokeShape="RoundRectangle 6"
-                    IsVisible="false"
-                    x:Name="btnExcluir_">
+        <StackLayout x:Name="slBotaoExcluir" IsVisible="false" Margin="0,30" />
 
-            <Button x:Name="btnExcluirProduto" Text="Excluir" WidthRequest="150" BackgroundColor="DarkRed" TextColor="White" FontAttributes="Bold" Clicked="ButtonExcluirProduto_Clicked"/>
-        </Border>
     </VerticalStackLayout>
 </ContentPage>

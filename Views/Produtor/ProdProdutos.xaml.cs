@@ -19,17 +19,25 @@ public partial class ProdProdutos : ContentPage
     {
         InitializeComponent();
 
-        listaProdutos.ItemsSource = produtos;
+        ValidarLista(produtos);      
     }
 
     private void BuscarProdutos()
     {
         var lista = controleProduto.MockListaProdutos();
 
-        if(lista != null && lista.Count > 0)
+        ValidarLista(lista);
+    }
+
+    private void ValidarLista(List<Produto> lista)
+    {
+        if (lista != null && lista.Count > 0)
             listaProdutos.ItemsSource = lista;
         else
+        {
+            listaProdutos.IsVisible = false;
             lblListaVazia.IsVisible = true;
+        }
     }
 
     private void ButtonAdicionarProduto_Clicked(object sender, EventArgs e)

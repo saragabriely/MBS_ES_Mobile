@@ -1,7 +1,7 @@
 using Filantroplanta.Controle;
 using Filantroplanta.Controle.Pessoa;
 using Filantroplanta.Models;
-using Filantroplanta.Views.Componentizacao.Botao;
+using Filantroplanta.Views.Componentizacao;
 using Filantroplanta.Views.Produtor;
 using LazyCache;
 using System.Threading.Tasks;
@@ -12,47 +12,22 @@ public partial class CadastroPessoa : ContentPage
 {
     public Pessoa pessoa { get; set; }
     public ControlePessoa controlePessoa = new ControlePessoa();
-    public BotoesCancelarSalvar btnCancelarSalvar = new BotoesCancelarSalvar();
+    public BotaoCancelar btnCancelar = new BotaoCancelar();
+    public BotaoSalvar   btnSalvar   = new BotaoSalvar();
     public ControleComponentizacao controleComponente = new ControleComponentizacao();
 
     public CadastroPessoa()
 	{
 		InitializeComponent();
 
-        AssociarComponentesCompartilhados();
-    }
-
-    private void AssociarComponentesCompartilhados()
-    {
-        AssociarBotaoCancelar();
-        AssociarBotaoSalvar();
-    }
-
-    private void AssociarBotaoCancelar()
-    {
-        BotaoCancelarVoltar btnCancelar = new BotaoCancelarVoltar();
-        hsBotoesSalvarCancelar.Children.Add(btnCancelar);
-
-        Button cancelar = btnCancelar.FindByName<Button>("btnCancelarVoltar");
-        cancelar.Clicked += this.ButtonCancelar_Clicked;
-        cancelar.Text = "Voltar";
-    }
-
-    private void AssociarBotaoSalvar()
-    {
-        BotaoSalvar btnSalvar = new BotaoSalvar();
-        hsBotoesSalvarCancelar.Children.Add(btnSalvar);
-
-        Button salvar = btnSalvar.FindByName<Button>("btnCadastrarSalvar");
-        salvar.Clicked += this.ButtonSalvarPessoa_Clicked;
-        salvar.Text = "Salvar";
+        this.BotoesCancelarSalvar("Finalizar");
     }
 
     public CadastroPessoa(Pessoa pessoaCadastrada)
     {
         InitializeComponent();
 
-        AssociarComponentesCompartilhados();
+        this.BotoesCancelarSalvar("Salvar");
 
         if (pessoaCadastrada != null)
         {
@@ -65,12 +40,26 @@ public partial class CadastroPessoa : ContentPage
         }
     }
 
+    private void BotoesCancelarSalvar(string descricaoSalvar)
+    {
+        var botaoSalvar = btnSalvar.FindByName<Button>(controleComponente.NomeBotaoSalvar);
+        if (botaoSalvar != null)
+        {
+            botaoSalvar.Clicked += this.ButtonSalvar_Clicked;
+            btnSalvar.Texto = descricaoSalvar;
+        }
+
+        var botaoCancelar = btnCancelar.FindByName<Button>(controleComponente.NomeBotaoCancelar);
+        if (botaoCancelar != null)
+            botaoCancelar.Clicked += this.ButtonCancelar_Clicked;
+    }
+
     private void ButtonCancelar_Clicked(object sender, EventArgs e)
     {
         Voltar();
     }
 
-    private async void ButtonSalvarPessoa_Clicked(object sender, EventArgs e)
+    private async void ButtonSalvar_Clicked(object sender, EventArgs e)
     {
         await FinalizarOuSalvarCadastro();
     }
@@ -107,103 +96,103 @@ public partial class CadastroPessoa : ContentPage
         if (this.pessoa != null && this.pessoa.Pessoa_ID > 0)
             pessoa = this.pessoa;
 
-        if (string.IsNullOrEmpty(entNome.Text))
+        if (string.IsNullOrEmpty(entNome.TextoEntry))
         {
             LancarExcecaoCampoVazio("NOME");
             return null;
         }
         else
-            pessoa.Nome = entNome.Text;
+            pessoa.Nome = entNome.TextoEntry;
 
-        if (string.IsNullOrEmpty(entDocumento.Text))
+        if (string.IsNullOrEmpty(entDocumento.TextoEntry))
         {
             LancarExcecaoCampoVazio("DOCUMENTO");
             return null;
         }
         else
-            pessoa.Documento = entDocumento.Text;
+            pessoa.Documento = entDocumento.TextoEntry;
 
-        if (string.IsNullOrEmpty(entCep.Text))
+        if (string.IsNullOrEmpty(entCep.TextoEntry))
         {
             LancarExcecaoCampoVazio("CEP");
             return null;
         }
         else 
-            pessoa.CEP = entCep.Text;
+            pessoa.CEP = entCep.TextoEntry;
 
-        if (string.IsNullOrEmpty(entEndereco.Text))
+        if (string.IsNullOrEmpty(entEndereco.TextoEntry))
         {
             LancarExcecaoCampoVazio("ENDEREÇO");
             return null;
         }
         else
-            pessoa.Endereco = entEndereco.Text;
+            pessoa.Endereco = entEndereco.TextoEntry;
 
-        if (string.IsNullOrEmpty(entNumero.Text))
+        if (string.IsNullOrEmpty(entNumero.TextoEntry))
         {
             LancarExcecaoCampoVazio("NUMERO");
             return null;
         }
         else
-            pessoa.Numero = Convert.ToInt32(entNumero.Text);
+            pessoa.Numero = Convert.ToInt32(entNumero.TextoEntry);
 
-        if (string.IsNullOrEmpty(entBairro.Text))
+        if (string.IsNullOrEmpty(entBairro.TextoEntry))
         {
             LancarExcecaoCampoVazio("BAIRRO");
             return null;
         }
         else
-            pessoa.Bairro = entBairro.Text;
+            pessoa.Bairro = entBairro.TextoEntry;
 
-        if (string.IsNullOrEmpty(entCidade.Text))
+        if (string.IsNullOrEmpty(entCidade.TextoEntry))
         {
             LancarExcecaoCampoVazio("CIDADE");
             return null;
         }
         else
-            pessoa.Cidade = entCidade.Text;
+            pessoa.Cidade = entCidade.TextoEntry;
 
-        if (string.IsNullOrEmpty(entEstado.Text))
+        if (string.IsNullOrEmpty(entEstado.TextoEntry))
         {
             LancarExcecaoCampoVazio("ESTADO");
             return null;
         }
         else
-            pessoa.Estado = entEstado.Text;
+            pessoa.Estado = entEstado.TextoEntry;
 
-        if (string.IsNullOrEmpty(entTelefone.Text))
+        if (string.IsNullOrEmpty(entTelefone.TextoEntry))
         {
             LancarExcecaoCampoVazio("TELEFONE");
             return null;
         }
         else
-            pessoa.Telefone = entTelefone.Text;
+            pessoa.Telefone = entTelefone.TextoEntry;
 
-        if (string.IsNullOrEmpty(entEmail.Text))
+        if (string.IsNullOrEmpty(entEmail.TextoEntry))
         {
             LancarExcecaoCampoVazio("EMAIL");
             return null;
         }
         else
-            pessoa.Email = entEmail.Text;
+            pessoa.Email = entEmail.TextoEntry;
 
         if(pessoa.Pessoa_ID == 0)
         {
-            if (string.IsNullOrEmpty(entSenha.Text))
+            if (string.IsNullOrEmpty(entSenha.TextoEntry))
             {
                 LancarExcecaoCampoVazio("SENHA");
                 return null;
             }
             else
-                pessoa.Senha = entSenha.Text;
+                pessoa.Senha = entSenha.TextoEntry;
 
-            if (string.IsNullOrEmpty(entConfirmaSenha.Text))
+            if (string.IsNullOrEmpty(entConfirmaSenha.TextoEntry))
             {
                 LancarExcecaoCampoVazio("CONFIRMAÇÃO DE SENHA");
                 return null;
             }
 
-            if (!entConfirmaSenha.Text.Equals(entSenha.Text))
+            if (!entConfirmaSenha.TextoEntry.Equals(entSenha.TextoEntry))
             {
                 await DisplayAlert("Senha", "As senhas não coincidem", "OK");
                 return null;
@@ -225,17 +214,17 @@ public partial class CadastroPessoa : ContentPage
 
     private void PopularCamposCadastro(Pessoa pessoa)
     {
-        entNome.Text        = pessoa.Nome;
-        entDocumento.Text   = pessoa.Documento;
-        entCep.Text         = pessoa.CEP;
-        entEndereco.Text    = pessoa.Endereco;
-        entNumero.Text      = pessoa.Numero.ToString();
-        entComplemento.Text = pessoa.Complemento;
-        entBairro.Text      = pessoa.Bairro;
-        entCidade.Text      = pessoa.Cidade;
-        entEstado.Text      = pessoa.Estado;
-        entTelefone.Text    = pessoa.Telefone;
-        entEmail.Text       = pessoa.Email;
+        entNome.TextoEntry       = pessoa.Nome;
+        entDocumento.TextoEntry  = pessoa.Documento;
+        entCep.TextoEntry        = pessoa.CEP;
+        entEndereco.TextoEntry   = pessoa.Endereco;
+        entNumero.TextoEntry     = pessoa.Numero.ToString();
+        entComplemento.TextoEntry = pessoa.Complemento;
+        entBairro.TextoEntry     = pessoa.Bairro;
+        entCidade.TextoEntry     = pessoa.Cidade;
+        entEstado.TextoEntry     = pessoa.Estado;
+        entTelefone.TextoEntry   = pessoa.Telefone;
+        entEmail.TextoEntry      = pessoa.Email;
 
         lblPerfilUsuario.Text = pessoa.mTipoPessoa.TipoPessoa_ID == TipoPessoa.Produtor ? "Produtor" : "Restaurante";
 

@@ -20,11 +20,10 @@ public partial class ProdHome : ContentPage
 
     private void PopularLabelBoasVindas()
     {
-        var produtor  = controle.BuscarUsuarioLogado();
+        //var produtor  = controle.BuscarUsuarioLogado();
+        //var nomePessoa = produtor != null && produtor.Pessoa_ID > 0 ? produtor.Nome : "";
 
-        var nomePessoa = produtor != null && produtor.Pessoa_ID > 0 ? produtor.Nome : "";
-
-        lblMsgInicial.Text = $"Olá, seja bem-vindo(a)! {nomePessoa}";
+        lblMsgInicial.Titulo = "Olá, seja bem-vindo(a)!";
     }
 
     private void Filantroplanta_Clicked(object sender, EventArgs e)

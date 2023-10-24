@@ -1,13 +1,18 @@
+using Filantroplanta.Controle;
 using Filantroplanta.Controle.Produtor;
 using Filantroplanta.Models;
+using Filantroplanta.Views.Componentizacao;
 
 namespace Filantroplanta.Views.Produtor;
 
 public partial class ProdEstoque : ContentPage
 {
     public Produto ProdutoSelecionado { get; set; }
+    public BotaoCancelar btnCancelar = new BotaoCancelar();
+    public BotaoSalvar   btnSalvar   = new BotaoSalvar();
+    public ControleComponentizacao controleComponente = new ControleComponentizacao();
 
-	public ProdEstoque()
+    public ProdEstoque()
 	{
 		InitializeComponent();
 	}
@@ -19,7 +24,21 @@ public partial class ProdEstoque : ContentPage
         PopularCampos(produto);
     }
 
-    private void btnCancelar_Clicked(object sender, EventArgs e)
+    private void BotoesCancelarSalvar(string descricaoSalvar)
+    {
+        var botaoSalvar = btnSalvar.FindByName<Button>(controleComponente.NomeBotaoSalvar);
+        if (botaoSalvar != null)
+        {
+            botaoSalvar.Clicked += this.ButtonSalvar_Clicked;
+            btnSalvar.Texto = descricaoSalvar;
+        }
+
+        var botaoCancelar = btnCancelar.FindByName<Button>(controleComponente.NomeBotaoCancelar);
+        if (botaoCancelar != null)
+            botaoCancelar.Clicked += this.ButtonCancelar_Clicked;
+    }
+
+    private void ButtonCancelar_Clicked(object sender, EventArgs e)
     {
         Voltar();
     }
@@ -29,7 +48,7 @@ public partial class ProdEstoque : ContentPage
         Navigation.PopAsync();
     }
 
-    private async void btnSalvarProduto_Clicked(object sender, EventArgs e)
+    private async void ButtonSalvar_Clicked(object sender, EventArgs e)
     {
         try
         {

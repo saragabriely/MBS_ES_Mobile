@@ -2,37 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Filantroplanta.Views.Usuario.CadastroPessoa"
-             xmlns:local="clr-namespace:Filantroplanta.Views.Usuario"
+             xmlns:local="clr-namespace:Filantroplanta.Views.Componentizacao"
              Title="Cadastro" 
-             IconImageSource="icone.png"
-             >
+             IconImageSource="icone.png" >
 
     <ScrollView>
         <VerticalStackLayout
             Spacing="5"
-            Padding="30,0"
-            >
+            Padding="30,0" >
 
-            <Label 
-                Text="Primeiro Cadastro"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center"
-                FontAttributes="Bold"
-                FontSize="20"
-                Margin="0,30"
-                x:Name="lblPrimeiroCadastro"
-            />
-
-            <Label 
-                Text="Meu Cadastro"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center"
-                FontAttributes="Bold"
-                FontSize="20"
-                Margin="0,30"
-                x:Name="lblMeuCadastro"
-                IsVisible="false"
-            />
+            <local:LabelTitulo Titulo="Primeiro Cadastro" x:Name="lblPrimeiroCadastro"                    />
+            <local:LabelTitulo Titulo="Meu Cadastro"      x:Name="lblMeuCadastro"       IsVisible="false" />
 
             <HorizontalStackLayout x:Name="stPerfilCadastro" IsVisible="false" BackgroundColor="LightGray">
                 <Label Text=" Perfil:" Margin="0,10" FontAttributes="Bold" FontSize="15" />
@@ -47,63 +27,28 @@
                 </HorizontalStackLayout>
             </StackLayout>
 
-            <Label Text="Nome" Margin="0,10,0,0" FontAttributes="Bold" />
-            <Entry x:Name="entNome" Placeholder="Digite o nome" WidthRequest="320"  Margin="-10,0,0,0" Keyboard="Text" />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
-
-            <Label Text="Documento" FontAttributes="Bold"  />
-            <Entry x:Name="entDocumento" Placeholder="000.000.000/0000-00" Keyboard="Numeric" />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
-
-            <Label Text="CEP" FontAttributes="Bold"  />
-            <Entry x:Name="entCep" Placeholder="00000-000" Keyboard="Numeric" />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
-
-            <Label Text="Endereço" FontAttributes="Bold"  />
-            <Entry x:Name="entEndereco" Placeholder="Avenida ..."   />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
-
-            <Label Text="Número" FontAttributes="Bold"  />
-            <Entry x:Name="entNumero" Placeholder="1" Keyboard="Numeric" />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
-
-            <Label Text="Complemento" FontAttributes="Bold"  />
-            <Entry x:Name="entComplemento" Placeholder="1" />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
-
-            <Label Text="Bairro" FontAttributes="Bold"  />
-            <Entry x:Name="entBairro" Placeholder="1" />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
-
-            <Label Text="Cidade" FontAttributes="Bold"  />
-            <Entry x:Name="entCidade" Placeholder="São Paulo" />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
-
-            <Label Text="Estado" FontAttributes="Bold"  />
-            <Entry x:Name="entEstado" Placeholder="SP" />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
-
-            <Label Text="Telefone" FontAttributes="Bold"  />
-            <Entry x:Name="entTelefone" Placeholder="(00)00000-0000" Keyboard="Numeric" />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
-
-            <Label Text="Email"  FontAttributes="Bold" />
-            <Entry x:Name="entEmail" Placeholder="teste@gmail.com" Keyboard="Email" />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
+            <local:LabelInput       TextoLabel="Nome Completo" PlaceholderEntry="Digite o nome completo" x:Name="entNome"        Margin="0,20,0,0"  />
+            <local:LabelInputNumero TextoLabel="Documento"     PlaceholderEntry="000.000.000/0000-00"    x:Name="entDocumento"      />
+            <local:LabelInputNumero TextoLabel="CEP"           PlaceholderEntry="00000-000"              x:Name="entCep"            />
+            <local:LabelInput       TextoLabel="Endereço"      PlaceholderEntry="Avenida ..."            x:Name="entEndereco"       />
+            <local:LabelInputNumero TextoLabel="Número"        PlaceholderEntry="1"                      x:Name="entNumero"         />
+            <local:LabelInput       TextoLabel="Complemento"   PlaceholderEntry="Digite o complemento"   x:Name="entComplemento"    />
+            <local:LabelInput       TextoLabel="Bairro"        PlaceholderEntry="Digite o bairro"        x:Name="entBairro"         />
+            <local:LabelInput       TextoLabel="Cidade"        PlaceholderEntry="Digite a cidade"        x:Name="entCidade"         />
+            <local:LabelInput       TextoLabel="Estado"        PlaceholderEntry="Digite o estado"        x:Name="entEstado"         />
+            <local:LabelInputNumero TextoLabel="Telefone"      PlaceholderEntry="(00)00000-0000"         x:Name="entTelefone"       />
+            <local:LabelInput       TextoLabel="Email"         PlaceholderEntry="teste@gmail.com"        x:Name="entEmail"          />
 
             <StackLayout x:Name="stSenha">
-                <Label Text="Senha" FontAttributes="Bold"  />
-                <Entry x:Name="entSenha" Placeholder="*****" IsPassword="True"  />
-                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10" />
-
-                <Label Text="Confirmar Senha" FontAttributes="Bold"  />
-                <Entry x:Name="entConfirmaSenha" Placeholder="*****" IsPassword="True"  />
-                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,10"  />
-
+                <local:LabelInputSenha TextoLabel="Senha"           x:Name="entSenha" />
+                <local:LabelInputSenha TextoLabel="Confirmar Senha" x:Name="entConfirmaSenha" />
             </StackLayout>
 
-            <HorizontalStackLayout x:Name="hsBotoesSalvarCancelar" Margin="0,20,0,60" />
-            
+            <HorizontalStackLayout x:Name="hsBotoesSalvarCancelar" Margin="0,0,0,40"  >
+                <local:BotaoCancelar x:Name="botaoCancelar" Texto="Cancelar"  />
+                <local:BotaoSalvar   x:Name="botaoSalvar"     />
+            </HorizontalStackLayout>
+
         </VerticalStackLayout>
     </ScrollView>
 

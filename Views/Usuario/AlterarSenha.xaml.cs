@@ -1,31 +1,51 @@
+using Filantroplanta.Controle;
+using Filantroplanta.Views.Componentizacao;
+
 namespace Filantroplanta.Views.Usuario;
 
 public partial class AlterarSenha : ContentPage
 {
-	public AlterarSenha()
+    public BotaoCancelar btnCancelar = new BotaoCancelar();
+    public BotaoSalvar   btnSalvar   = new BotaoSalvar();
+    public ControleComponentizacao controleComponente = new ControleComponentizacao();
+
+    public AlterarSenha()
 	{
 		InitializeComponent();
-	}
 
-	public void Voltar()
+        this.BotoesCancelarSalvar();
+    }
+
+    private void BotoesCancelarSalvar()
+    {
+        var botaoSalvar = btnSalvar.FindByName<Button>(controleComponente.NomeBotaoSalvar);
+        if (botaoSalvar != null)
+            botaoSalvar.Clicked += this.ButtonSalvar_Clicked;
+
+        var botaoCancelar = btnCancelar.FindByName<Button>(controleComponente.NomeBotaoCancelar);
+        if (botaoCancelar != null)
+            botaoCancelar.Clicked += this.ButtonCancelar_Clicked;
+    }
+
+    public void Voltar()
 	{
 		Navigation.PopAsync();
 	}
 
-    private void btnCancelar_Clicked(object sender, EventArgs e)
+    private void ButtonCancelar_Clicked(object sender, EventArgs e)
     {
 		Voltar();
     }
 
-    private void btnSalvar_Clicked(object sender, EventArgs e)
+    private void ButtonSalvar_Clicked(object sender, EventArgs e)
     {
 		ValidarSenha();
     }
 
     private async void ValidarSenha()
     {
-        var senha = entSenha.Text;
-        var confirmarSenha = entConfirmaSenha.Text;
+        var senha          = entSenha.TextoEntry;
+        var confirmarSenha = entConfirmaSenha.TextoEntry;
 
         if(string.IsNullOrEmpty(senha) || string.IsNullOrEmpty(confirmarSenha))
         {

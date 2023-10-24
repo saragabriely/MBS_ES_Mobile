@@ -2,7 +2,8 @@ using Filantroplanta.Controle;
 using Filantroplanta.Controle.Produtor;
 using Filantroplanta.Mock;
 using Filantroplanta.Models;
-using Filantroplanta.Views.Componentizacao.Botao;
+using Filantroplanta.Views.Componentizacao;
+using Microsoft.Maui.Controls;
 using System.Windows.Input;
 
 namespace Filantroplanta.Views.Produtor;
@@ -11,70 +12,86 @@ public partial class ProdCadastroProduto : ContentPage
 {
     public Produto produto { get; set; }
     public MockGeral mock = new MockGeral();
-    public ControleProduto controleProduto = new ControleProduto();
-    public BotoesCancelarSalvar btnCancelarSalvar = new BotoesCancelarSalvar();
+    public ControleProduto controleProduto  = new ControleProduto();
+    public BotaoCancelar   btnCancelar      = new BotaoCancelar();
+    public BotaoSalvar     btnSalvar        = new BotaoSalvar();
+    public BotaoExcluirRecusar  btnExcluirRecusar = new BotaoExcluirRecusar();
+    public LabelInput       labelInput = new LabelInput();
+    public ControleComponentizacao controleComponente = new ControleComponentizacao();
 
     public ProdCadastroProduto()
 	{
 		InitializeComponent();
 
-        AssociarComponentesCompartilhados();
+        this.BotoesCancelarSalvar("Finalizar");
     }
 
-    private void AssociarComponentesCompartilhados()
+    private void BotoesCancelarSalvar(string descricaoSalvar)
     {
-        AssociarBotaoCancelar();
-        AssociarBotaoSalvar();
-    }
-
-    private void AssociarBotaoCancelar()
-    {
-        BotaoCancelarVoltar btnCancelar = new BotaoCancelarVoltar();
         hsBotoesSalvarCancelar.Children.Add(btnCancelar);
-
-        Button cancelar = btnCancelar.FindByName<Button>("btnCancelarVoltar");
-        cancelar.Clicked += this.ButtonCancelar_Clicked;
-        cancelar.Text = "Voltar";
-    }
-
-    private void AssociarBotaoSalvar()
-    {
-        BotaoSalvar btnSalvar = new BotaoSalvar();
         hsBotoesSalvarCancelar.Children.Add(btnSalvar);
 
-        Button salvar = btnSalvar.FindByName<Button>("btnCadastrarSalvar");
-        salvar.Clicked += this.ButtonSalvarProduto_Clicked;
-        salvar.Text = "Salvar";
+        var botaoSalvar = btnSalvar.FindByName<Button>(controleComponente.NomeBotaoSalvar);
+        if (botaoSalvar != null)
+        {
+            botaoSalvar.Clicked += this.ButtonSalvar_Clicked;
+            btnSalvar.Texto = descricaoSalvar;
+        }
+
+        var botaoCancelar = btnCancelar.FindByName<Button>(controleComponente.NomeBotaoCancelar);
+        if (botaoCancelar != null)
+        {
+            botaoCancelar.Clicked += this.ButtonCancelar_Clicked;
+            btnCancelar.Texto = "Cancelar";
+        }
+    }
+
+    private void BotaoExcluir()
+    {
+        slBotaoExcluir.Children.Add(btnExcluirRecusar);
+
+        var botaoExcluir = btnExcluirRecusar.FindByName<Button>(controleComponente.NomeBotaoExcluirRecusar);
+        if (botaoExcluir != null)
+        {
+            botaoExcluir.Clicked  += this.ButtonExcluir_Clicked;
+            botaoExcluir.IsVisible = true;
+            btnExcluirRecusar.Texto = "Excluir";
+        }
     }
 
     public ProdCadastroProduto(Produto produto)
     {
         InitializeComponent();
 
-        //this.BotoesCancelarSalvar("Cancelar", "Salvar");
-        AssociarComponentesCompartilhados();
+        this.BotoesCancelarSalvar("Salvar");
+        this.BotaoExcluir();
 
         if (produto != null)
         {
             this.produto = produto;
 
-            entNomeProduto.Text = this.produto.Descricao;
-            entQtde.Text        = this.produto.Quantidade.ToString();
-            entValorPorKG.Text  = this.produto.ValorPorKG.ToString();
+            entNomeProduto.TextoEntry = this.produto.Descricao;
+            entQtde.TextoEntry        = this.produto.Quantidade.ToString();
+            entValorPorKG.TextoEntry  = this.produto.ValorPorKG.ToString();
 
-            btnExcluir_.IsVisible   = true;
+            slBotaoExcluir.IsVisible   = true;
         }
     }
 
-    private void ButtonSalvarProduto_Clicked(object sender, EventArgs e)
+    private void ButtonSalvar_Clicked(object sender, EventArgs e)
     {
         RealizarCadastroProduto();
     }
 
-    private async void ButtonExcluirProduto_Clicked(object sender, EventArgs e)
+    private async void ButtonExcluir_Clicked(object sender, EventArgs e)
     {
         if(this.produto != null)
-            ExcluirProduto(this.produto);
+        {
+            bool resposta = await DisplayAlert("Exclusão", "Confirma a exclusão do produto?", "Sim", "Não");
+
+            if(resposta)
+                ExcluirProduto(this.produto);
+        }
         else
             await DisplayAlert("Produto vazio", "Ocorreu algum problema com o produto", "OK");
     }
@@ -111,10 +128,10 @@ public partial class ProdCadastroProduto : ContentPage
 
     private async void RealizarCadastroProduto()
     {
-        long pessoaID = 0;
-        var nomeProduto = entNomeProduto.Text;
-        var quantidade  = entQtde.Text;
-        var valorPorKG  = entValorPorKG.Text;
+        long pessoaID   = 0;
+        var nomeProduto = entNomeProduto.TextoEntry;
+        var quantidade  = entQtde.TextoEntry;
+        var valorPorKG  = entValorPorKG.TextoEntry;
 
         if (string.IsNullOrEmpty(nomeProduto))
             LancarExcecaoCampoVazio("NOME DO PRODUTO");
